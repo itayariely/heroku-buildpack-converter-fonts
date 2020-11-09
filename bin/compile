@@ -9,12 +9,14 @@ function indent() {
 }
 
 BUILD_DIR="$1"
-SOURCE_DIR="$(dirname $0)/../fonts.tar.gz"
+SOURCE_DIR1="$(dirname $0)/../fonts1.tar.gz"
+SOURCE_DIR2="$(dirname $0)/../fonts2.tar.gz"
 TARGET_DIR="$BUILD_DIR/.fonts"
 
 echo "-----> Extracting fonts to $TARGET_DIR"
 
 mkdir -p "$TARGET_DIR"
-tar -xvzf "$SOURCE_DIR" -C "$TARGET_DIR" | indent
+tar -xvzf "$SOURCE_DIR1" -C "$TARGET_DIR" | indent
+tar -xvzf "$SOURCE_DIR2" -C "$TARGET_DIR" | indent
 
 fc-cache -fv
